@@ -8,6 +8,7 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.List;
 
 public class OperationDAO extends BaseDAO<Operation> {
     public OperationDAO(Connection connection) {
@@ -30,6 +31,44 @@ public class OperationDAO extends BaseDAO<Operation> {
         return nbRows == 1;
 
     }
+
+    @Override
+    public List<Operation> getIdOperation() throws SQLException {
+        return null;
+    }
+
+    @Override
+    public List<Operation> getIdOperation(int id) throws SQLException {
+        List<Operation> result = new ArrayList<>();
+        Operation operation = null;
+        request = "select * from operation where id_compte_bancaire = ?";
+        statement = _connection.prepareStatement(request);
+        statement.setInt(1, id);
+        resultSet = statement.executeQuery();
+        while (resultSet.next()) {
+            operation = new Operation(resultSet.getInt("id"),
+                    resultSet.getDouble("montant"),
+                    resultSet.getBoolean("statut"));
+            result.add(operation);
+        }
+        return result;
+    }
+
+    @Override
+    public boolean update(CompteBancaire element) throws SQLException {
+        return false;
+    }
+
+    @Override
+    public CompteBancaire getIdCompte(int id) throws SQLException {
+        return null;
+    }
+
+    @Override
+    public List<CompteBancaire> getAllCompte(int id) throws SQLException {
+        return null;
+    }
+
 
     @Override
     public Client get(int id) throws SQLException {

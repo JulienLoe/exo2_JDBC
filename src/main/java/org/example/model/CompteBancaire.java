@@ -20,6 +20,11 @@ public class CompteBancaire {
         this.solde = 0;
     }
 
+    public CompteBancaire(int id, double solde){
+        this.id = id;
+        this.solde = solde;
+    }
+
     public int getId() {
         return id;
     }

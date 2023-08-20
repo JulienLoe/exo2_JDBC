@@ -12,6 +12,7 @@ import org.example.util.DatabaseManager;
 
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.util.List;
 
 public class OperationService {
     private OperationDAO operationDAO;
@@ -37,6 +38,14 @@ public class OperationService {
             throw new RuntimeException(e);
         }
         return false;
+    }
+
+    public List<Operation> getOperation(int id) {
+        try {
+            return operationDAO.getIdOperation(id);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 
 }

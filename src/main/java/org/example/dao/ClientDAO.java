@@ -1,10 +1,13 @@
 package org.example.dao;
 
 import org.example.model.Client;
+import org.example.model.CompteBancaire;
+import org.example.model.Operation;
 
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.List;
 
 public class ClientDAO extends BaseDAO<Client> {
     public ClientDAO(Connection connection) {
@@ -26,6 +29,32 @@ public class ClientDAO extends BaseDAO<Client> {
         return nbRows == 1;
 
     }
+
+    @Override
+    public List<Operation> getIdOperation(int id) throws SQLException {
+        return null;
+    }
+
+    @Override
+    public List<Operation> getIdOperation() throws SQLException {
+        return null;
+    }
+
+    @Override
+    public boolean update(CompteBancaire element) throws SQLException {
+        return false;
+    }
+
+    @Override
+    public CompteBancaire getIdCompte(int id) throws SQLException {
+        return null;
+    }
+
+    @Override
+    public List<CompteBancaire> getAllCompte(int id) throws SQLException {
+        return null;
+    }
+
 
     @Override
     public Client get(int id) throws SQLException {

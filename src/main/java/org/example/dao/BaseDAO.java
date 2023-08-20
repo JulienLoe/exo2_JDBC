@@ -1,6 +1,8 @@
 package org.example.dao;
 
 import org.example.model.Client;
+import org.example.model.CompteBancaire;
+import org.example.model.Operation;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -20,6 +22,17 @@ public abstract class BaseDAO<T> {
     }
 
     public abstract boolean save(T element) throws SQLException;
+
+    public abstract List<Operation> getIdOperation(int id) throws SQLException;
+
+    public abstract List<Operation> getIdOperation() throws SQLException;
+
+    public abstract boolean update(CompteBancaire element) throws SQLException;
+
+
+    public abstract CompteBancaire getIdCompte(int id) throws SQLException;
+
+    public abstract List<CompteBancaire> getAllCompte(int id) throws SQLException;
 
     public abstract Client get(int id) throws SQLException;
 
